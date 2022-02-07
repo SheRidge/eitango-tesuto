@@ -4,8 +4,8 @@ console.log(from_json);
 
 console.log(from_json[0].Name)
 
-var point=0
-var mondaisuu=0
+point=0
+mondaisuu=0
 
 function mondai() {
   const messageNo = Math.floor( Math.random() * from_json.length);
