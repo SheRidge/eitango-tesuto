@@ -1,5 +1,6 @@
 function kotaeawase() {
-  kotae = 'kotae()'
+  kotae = 'kotae'
+  
 }
 
 const messages = [''];
