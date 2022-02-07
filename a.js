@@ -1,3 +1,5 @@
+var point=0
+
 function mondai() {
   const messageNo = Math.floor( Math.random() * date.length);
   console.log(date.json[messageNo]);
@@ -7,12 +9,20 @@ function mondai() {
 
 function kotaeawase() {
   kotae = 'kotae'
-  
+  if (kotae == toi) {
+    alert("正解！")
+    point = point + 1
+  }
+  else{
+    alert("不正解…")
+  }
 }
 
-function 
-
 function pass() {
+  point=0
+}
+
+function reset() {
 
 }
 
