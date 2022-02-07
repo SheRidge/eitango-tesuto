@@ -19,17 +19,10 @@ function kotaeawase() {
 }
 
 function pass() {
-  point=0
+
 }
 
 function reset() {
-
+  point=0
+  alert("リセットしました…")
 }
-
-const messages = [''];
-
-
-
-// データ読み込み(ここらへんよくわからんw)
-console.log(date.);
-console.log(messages[messageNo]);
