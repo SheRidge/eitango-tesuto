@@ -10,6 +10,12 @@ function kotaeawase() {
   
 }
 
+function 
+
+function pass() {
+
+}
+
 const messages = [''];
 
 
