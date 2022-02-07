@@ -1,7 +1,8 @@
 function mondai() {
   const messageNo = Math.floor( Math.random() * date.length);
   console.log(date.json[messageNo]);
-  var toi = date.
+  var toi = date.[messageNo]
+  toi.innerHTML = toi;
 }
 
 function kotaeawase() {
