@@ -33,5 +33,5 @@ function pass() {
 function reset() {
   point=0
   mondaisuu=0
-  alert("リセットしました…")
+  alert("リセットしました…");
 }
