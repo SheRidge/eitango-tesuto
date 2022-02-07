@@ -1,10 +1,16 @@
+const from_json = JSON.parse(date.json);
+
+console.log(from_json);
+
+console.log(from_json[0].Name)
+
 var point=0
 var mondaisuu=0
 
 function mondai() {
-  const messageNo = Math.floor( Math.random() * date.length);
-  console.log(date.json[messageNo]);
-  var toi = date.[messageNo]
+  const messageNo = Math.floor( Math.random() * from_json.length);
+  console.log(from_json[messageNo]);
+  var toi = from_json[messageNo]
   toi.innerHTML = toi;
 }
 
