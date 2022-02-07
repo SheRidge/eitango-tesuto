@@ -1,3 +1,7 @@
+function mondai() {
+  var toi = 
+}
+
 function kotaeawase() {
   kotae = 'kotae'
   
