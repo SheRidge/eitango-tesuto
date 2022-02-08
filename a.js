@@ -7,8 +7,8 @@ function getJson() {
          if (xmlhttp.status == 200) {
            var data = JSON.parse(xmlhttp.responseText);
 
-           var elem = document.getElementById("output_name");
-           elem.innerText = data.name;
+           var elem = document.getElementById("output_a");
+           elem.innerText = data.a;
            
          } else {
          }
