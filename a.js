@@ -1,3 +1,23 @@
+function getJson() {
+     //var xmlhttp = createXMLHttpRequest(); //旧バージョンのIEなどに対応する場合
+     var xmlhttp = new XMLHttpRequest();
+
+     xmlhttp.onreadystatechange = function () {
+       if (xmlhttp.readyState == 4) {
+         if (xmlhttp.status == 200) {
+           var data = JSON.parse(xmlhttp.responseText);
+
+           var elem = document.getElementById("output_name");
+           elem.innerText = data.name;
+           
+         } else {
+         }
+       }
+     }
+     xmlhttp.open("GET", "data.json");
+     xmlhttp.send();
+   }
+
 var num = Math.floor( Math.random() * 11 );
 
 const from_json = JSON.parse(date.json);
