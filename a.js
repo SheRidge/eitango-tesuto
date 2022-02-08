@@ -1,3 +1,5 @@
+var num = Math.floor( Math.random() * 11 );
+
 const from_json = JSON.parse(date.json);
 
 console.log(from_json);
@@ -8,9 +10,8 @@ point=0
 mondaisuu=0
 
 function mondai() {
-  const messageNo = Math.floor( Math.random() * from_json.length);
-  console.log(from_json[messageNo]);
-  var toi = from_json[messageNo]
+  console.log(from_json[num]);
+  var toi = from_json[num]
   toi.innerHTML = toi;
 }
 
