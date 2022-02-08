@@ -20,11 +20,11 @@ function getJson() {
 
 var num = Math.floor( Math.random() * 11 );
 
-const from_json = JSON.parse(date.json);
+///const from_json = JSON.parse(date.json);
 
-console.log(from_json);
+///console.log(from_json);
 
-console.log(from_json[0].Name)
+///console.log(from_json[0].Name)
 
 point=0
 mondaisuu=0
