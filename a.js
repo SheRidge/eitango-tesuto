@@ -31,7 +31,7 @@ mondaisuu=0
 
 function mondai() {
   console.log(from_json[num]);
-  var toi = from_json[num]
+  var toi = (from_json[num])
   toi.innerHTML = toi;
 }
 
