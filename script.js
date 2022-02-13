@@ -15,7 +15,7 @@ function kotaeawase() {
   if (kaitou == answer) {
     alert('正解')
   } else {
-    alert('不正解')
+    alert('不正解…答えは' + answer + 'でしたー')
   }
 }
 
