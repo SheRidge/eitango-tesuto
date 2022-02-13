@@ -17,6 +17,7 @@ function kotaeawase() {
   } else {
     alert('不正解…答えは' + answer + 'でしたー')
   }
+  window.number++
 }
 
 function shuffle(array) {
