@@ -25,9 +25,10 @@ function kotaeawase() {
     window.confirm('不正解…答えは' + answer + 'でしたー')
     if (result == true) {
       window.number++
-    }} else if (result == false) {
+    } else if (result == false) {
       alert("終了" + window.seikai + "/" + window.number + "正解！")
   }
+}
 }
 
 function shuffle(array) {
