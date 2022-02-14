@@ -17,6 +17,7 @@ function kotaeawase() {
   if (kaitou == answer) {
     var result = window.confirm('正解')
     window.seikai++
+    $('#q_box').text(window.data[window.number].jp) //問題を表示
     if (result == true) {
       window.number++
     } else if (result == false) {
@@ -26,6 +27,7 @@ function kotaeawase() {
     window.confirm('不正解…答えは' + answer + 'でしたー')
     if (result == true) {
       window.number++
+      $('#q_box').text(window.data[window.number].jp) //問題を表示
     } else if (result == false) {
       alert("終了" + window.seikai + "/" + window.number + "正解！")
     }
