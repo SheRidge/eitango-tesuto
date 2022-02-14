@@ -28,7 +28,6 @@ function kotaeawase() {
     }} else if (result == false) {
       alert("終了" + window.seikai + "/" + window.number + "正解！")
   }
-  window.number++
 }
 
 function shuffle(array) {
