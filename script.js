@@ -1,5 +1,7 @@
 //問題数
 window.number = 0
+//正解数
+window.seikai = 0
 
 //Jsonの読み込み
 $.getJSON('./data.json', function (data, textStatus, jqXHR) {
@@ -13,9 +15,14 @@ function kotaeawase() {
   const kaitou = $('#kaitou').val() //入力したもの
   const answer = window.data[window.number].en //答え
   if (kaitou == answer) {
-    alert('正解')
+    var result = window.confirm('正解')
+    window.seikai++
+    if (result == true) {
+      window.number++
+    } else if (result == false) {
+      alert("終了" + window.seikai + "/" + window.number + "正解！")
   } else {
-    alert('不正解…答えは' + answer + 'でしたー')
+    window.confirm('不正解…答えは' + answer + 'でしたー')
   }
   window.number++
 }
