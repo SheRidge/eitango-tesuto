@@ -21,14 +21,15 @@ function kotaeawase() {
       window.number++
     } else if (result == false) {
       alert("終了" + window.seikai + "/" + window.number + "正解！")
-  }} else {
+    }
+  } else {
     window.confirm('不正解…答えは' + answer + 'でしたー')
     if (result == true) {
       window.number++
     } else if (result == false) {
       alert("終了" + window.seikai + "/" + window.number + "正解！")
+    }
   }
-}
 }
 
 function shuffle(array) {
@@ -37,10 +38,10 @@ function shuffle(array) {
   while (currentIndex != 0) {
     randomIndex = Math.floor(Math.random() * currentIndex)
     currentIndex--
-    ;[array[currentIndex], array[randomIndex]] = [
-      array[randomIndex],
-      array[currentIndex],
-    ]
+      ;[array[currentIndex], array[randomIndex]] = [
+        array[randomIndex],
+        array[currentIndex],
+      ]
   }
   return array
 }
