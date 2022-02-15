@@ -2,21 +2,5 @@
 <title>英単語テストアプリ</title>
 <script src="script.js"></script>
 <a href="mondai.html"><input id="Button_Get" type="button" value="START" onclick="getJson();" /></a>
-<script>
-  ('./data.json', function (data, textStatus, jqXHR) {
-  window.data = shuffle(data)
-})
-
-  window.onload = function () {
-
-    window.onunload = function () {
-      
-        window.data = shuffle(data)
-        //問題数
-        window.number = 0
-        $('#q_box').text(window.data[window.number].jp) //問題を表示
-      }
-    }
-</script>
 
 </html>
