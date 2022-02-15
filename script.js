@@ -41,9 +41,6 @@ function reset() {
   alert("リセットしました")
 }
 
-function tukaikata() {
-  alert("「問題を表示」をクリック→入力→「答え合わせ」をクリック…")
-}
 
 function shuffle(array) {
   let currentIndex = array.length,
