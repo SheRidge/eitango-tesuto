@@ -14,11 +14,11 @@ function mondai() {
 function kotaeawase() {
   const kaitou = $('#kaitou').val() //入力したもの
   const answer = window.data[window.number].en //答え
+  window.number++
   if (kaitou == answer) {
     var result = window.confirm('正解')
     window.seikai++
     if (result == true) {
-      window.number++
       $('#q_box').text(window.data[window.number].jp) //問題を表示
       $('#kaitou').val("")
     } else if (result == false) {
@@ -27,7 +27,6 @@ function kotaeawase() {
   } else {
     var result = window.confirm('不正解…答えは' + answer + 'でしたー')
     if (result == true) {
-      window.number++
       $('#q_box').text(window.data[window.number].jp) //問題を表示
       $('#kaitou').val("")
     } else if (result == false) {
