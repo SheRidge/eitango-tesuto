@@ -30,7 +30,7 @@ function kotaeawase() {
       $('#q_box').text(window.data[window.number].jp) //問題を表示
       $('#kaitou').val("")
     } else if (result == false) {
-      alert("終了！" + window.seikai + "/" + window.number + "正解！")
+      alert("終了！" + window.seikai + "/" + window.number + "正解！\n" + window.seikai / window.number * 100 + "％正解！")
     }
   }
 }
