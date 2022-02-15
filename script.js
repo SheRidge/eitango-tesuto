@@ -35,6 +35,12 @@ function kotaeawase() {
   }
 }
 
+function reset() {
+  window.number = 0
+  window.seikai = 0
+  alert("リセットしました")
+}
+
 function tukaikata() {
   alert("「問題を表示」をクリック→入力→「答え合わせ」をクリック…")
 }
