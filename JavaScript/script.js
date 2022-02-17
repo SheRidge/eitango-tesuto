@@ -4,7 +4,7 @@ window.number = 0
 window.seikai = 0
 
 //Jsonの読み込み
-$.getJSON('./data.json', function (data, textStatus, jqXHR) {
+$.getJSON('./JSON/data.json', function (data, textStatus, jqXHR) {
   window.data = shuffle(data)
 })
 function mondai() {
