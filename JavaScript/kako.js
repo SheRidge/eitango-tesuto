@@ -4,7 +4,7 @@ window.number = 0
 window.seikai = 0
 
 //Jsonの読み込み
-$.getJSON('./JSON/kako.json', function (kako, textStatus, jqXHR) {
+$.getJSON('../JSON/kako.json', function (kako, textStatus, jqXHR) {
   window.kako = shuffle(kako)
 })
 function mondai() {
