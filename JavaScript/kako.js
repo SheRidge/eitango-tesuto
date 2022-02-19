@@ -8,18 +8,18 @@ $.getJSON('../JSON/kako.json', function (kako, textStatus, jqXHR) {
   window.kako = shuffle(kako)
 })
 function mondai() {
-  $('#q_box').text(window.kako[window.number].jp) //問題を表示
+  $('#q_box').text(window.kako[window.number].gen) //問題を表示
 }
 
 function kotaeawase() {
   const kaitou = $('#kaitou').val() //入力したもの
-  const answer = window.kako[window.number].en //答え
+  const answer = window.kako[window.number].kako //答え
   window.number++
   if (kaitou == answer) {
     var result = window.confirm('正解')
     window.seikai++
     if (result == true) {
-      $('#q_box').text(window.kako[window.number].jp) //問題を表示
+      $('#q_box').text(window.kako[window.number].gen) //問題を表示
       $('#kaitou').val("")
     } else if (result == false) {
       alert("終了！" + window.seikai + "/" + window.number + "正解！")
@@ -27,7 +27,7 @@ function kotaeawase() {
   } else {
     var result = window.confirm('不正解…答えは' + answer + 'でしたー')
     if (result == true) {
-      $('#q_box').text(window.kako[window.number].jp) //問題を表示
+      $('#q_box').text(window.kako[window.number].gen) //問題を表示
       $('#kaitou').val("")
     } else if (result == false) {
       alert("終了！" + window.seikai + "/" + window.number + "正解！\n" + window.seikai / window.number * 100 + "％正解！")
