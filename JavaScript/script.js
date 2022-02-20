@@ -12,6 +12,7 @@ $.getJSON('../JSON/data.json', function (data, textStatus, jqXHR) {
   window.data = shuffle(data)
 })
 function mondai() {
+  $('#m_box').text(window.number + "問目")
   $('#q_box').text(window.data[window.number].jp) //問題を表示
 }
 
@@ -27,6 +28,7 @@ function kotaeawase() {
       window.saikou = window.renzoku
     }
     if (result == true) {
+      $('#m_box').text(window.number + "問目")
       $('#q_box').text(window.data[window.number].jp) //問題を表示
       $('#s_box').text(window.renzoku + "連続正解中！")
       $('#kaitou').val("")
@@ -50,6 +52,7 @@ function kotaeawase() {
     var result = window.confirm('不正解…答えは' + answer + 'でしたー')
     window.renzoku = 0
     if (result == true) {
+      $('#m_box').text(window.number + "問目")
       $('#q_box').text(window.data[window.number].jp) //問題を表示
       $('#s_box').text("")
       $('#kaitou').val("")
