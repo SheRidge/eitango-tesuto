@@ -4,8 +4,8 @@ window.number = 0
 window.seikai = 0
 
 //Jsonの読み込み
-$.getJSON('../JSON/kako.json', function (kako, textStatus, jqXHR) {
-  window.kako = shuffle(kako)
+$.getJSON('../JSON/kakobunshi.json', function (kakobunshi, textStatus, jqXHR) {
+  window.kako = shuffle(kakobunshi)
 })
 function mondai() {
   $('#q_box').text(window.kako[window.number].gen) //問題を表示
