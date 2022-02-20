@@ -6,13 +6,21 @@ window.seikai = 0
 window.renzoku = 0
 //最高連続正解数
 window.saikou = 0
+//問題数
+window.mondaisuu = 100
 
 //Jsonの読み込み
 $.getJSON('../JSON/data.json', function (data, textStatus, jqXHR) {
   window.data = shuffle(data)
 })
+
+function mondaisuu() {
+  window.mondaisuu = $('#kaitou').val() //入力したもの
+  alert("問題数を" + window.mondaisuu + "に設定しました。")
+}
+
 function mondai() {
-  $('#m_box').text(window.number + 1 + "問目")
+  $('#m_box').text(window.number + 1 + "/" + window.mondaisuu + "問目")
   $('#q_box').text(window.data[window.number].jp) //問題を表示
 }
 
@@ -23,53 +31,68 @@ function kotaeawase() {
   if (kaitou == answer) {
     window.seikai++
     window.renzoku++
-    var result = window.confirm('正解\n' + window.renzoku + "連続正解！！！")
-    if (window.renzoku > window.saikou) {
-      window.saikou = window.renzoku
-    }
-    if (result == true) {
-      $('#m_box').text(window.number + 1 + "問目")
-      $('#q_box').text(window.data[window.number].jp) //問題を表示
-      $('#s_box').text(window.renzoku + "連続正解中！")
-      $('#kaitou').val("")
-    } else if (result == false) {
-      if (window.number == window.renzoku) {
-        alert("終了！" + window.seikai + "/" + window.number + "正解！\n" + window.seikai / window.number * 100 + "％正解！\n全問正解！！！！！\n")
-        window.number = 0
-        window.seikai = 0
-        window.renzoku = 0
-        window.saikou = 0
-      }else {
-        alert("終了！" + window.seikai + "/" + window.number + "正解！\n" + window.seikai / window.number * 100 + "％正解！\n最高" + window.saikou + "連続正解！！")
-        window.number = 0
-        window.seikai = 0
-        window.renzoku = 0
-        window.saikou = 0
+    if (window.mondaisuu <= window.number) {
+      var result = window.confirm('正解\n' + window.renzoku + "連続正解！！！")
+      if (window.renzoku > window.saikou) {
+        window.saikou = window.renzoku
       }
-        
+      if (result == true) {
+        $('#m_box').text(window.number + 1 + "/" + window.mondaisuu + "問目")
+        $('#q_box').text(window.data[window.number].jp) //問題を表示
+        $('#s_box').text(window.renzoku + "連続正解中！")
+        $('#kaitou').val("")
+      } else if (result == false) {
+        if (window.number == window.renzoku) {
+          alert("終了！" + window.seikai + "/" + window.number + "正解！\n" + window.seikai / window.number * 100 + "％正解！\n全問正解！！！！！\n")
+          window.number = 0
+          window.seikai = 0
+          window.renzoku = 0
+          window.saikou = 0
+        } else {
+          alert("終了！" + window.seikai + "/" + window.number + "正解！\n" + window.seikai / window.number * 100 + "％正解！\n最高" + window.saikou + "連続正解！！")
+          window.number = 0
+          window.seikai = 0
+          window.renzoku = 0
+          window.saikou = 0
+        }
+      }
+    } else {
+      alert("終了！" + window.seikai + "/" + window.number + "正解！\n" + window.seikai / window.number * 100 + "％正解！\n最高" + window.saikou + "連続正解！！")
+      window.number = 0
+      window.seikai = 0
+      window.renzoku = 0
+      window.saikou = 0
     }
   } else {
-    var result = window.confirm('不正解…答えは' + answer + 'でしたー')
-    window.renzoku = 0
-    if (result == true) {
-      $('#m_box').text(window.number + 1 + "問目")
-      $('#q_box').text(window.data[window.number].jp) //問題を表示
-      $('#s_box').text("")
-      $('#kaitou').val("")
-    } else if (result == false) {
-      if (window.number == window.renzoku) {
-        alert("終了！" + window.seikai + "/" + window.number + "正解！\n" + window.seikai / window.number * 100 + "％正解！\n全問正解！！！！！\n")
-        window.number = 0
-        window.seikai = 0
-        window.renzoku = 0
-        window.saikou = 0
-      }else {
-        alert("終了！" + window.seikai + "/" + window.number + "正解！\n" + window.seikai / window.number * 100 + "％正解！\n最高" + window.saikou + "連続正解！！")
-        window.number = 0
-        window.seikai = 0
-        window.renzoku = 0
-        window.saikou = 0
+    if (window.mondaisuu <= window.number) {
+      var result = window.confirm('不正解…答えは' + answer + 'でしたー')
+      window.renzoku = 0
+      if (result == true) {
+        $('#m_box').text(window.number + 1 + "/" + window.mondaisuu + "問目")
+        $('#q_box').text(window.data[window.number].jp) //問題を表示
+        $('#s_box').text("")
+        $('#kaitou').val("")
+      } else if (result == false) {
+        if (window.number == window.renzoku) {
+          alert("終了！" + window.seikai + "/" + window.number + "正解！\n" + window.seikai / window.number * 100 + "％正解！\n全問正解！！！！！\n")
+          window.number = 0
+          window.seikai = 0
+          window.renzoku = 0
+          window.saikou = 0
+        } else {
+          alert("終了！" + window.seikai + "/" + window.number + "正解！\n" + window.seikai / window.number * 100 + "％正解！\n最高" + window.saikou + "連続正解！！")
+          window.number = 0
+          window.seikai = 0
+          window.renzoku = 0
+          window.saikou = 0
+        }
       }
+    } else {
+      alert("終了！" + window.seikai + "/" + window.number + "正解！\n" + window.seikai / window.number * 100 + "％正解！\n最高" + window.saikou + "連続正解！！")
+      window.number = 0
+      window.seikai = 0
+      window.renzoku = 0
+      window.saikou = 0
     }
   }
 }
