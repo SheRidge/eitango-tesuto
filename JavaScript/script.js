@@ -15,7 +15,7 @@ $.getJSON('../JSON/data.json', function (data, textStatus, jqXHR) {
 })
 
 function mondaisuu() {
-  window.mondaisuu = $('#kaitou').val() //入力したもの
+  window.mondaisuu = parseFloat($('#kaitou').val());//入力したもの
   alert("問題数を" + window.mondaisuu + "に設定しました。")
 }
 
