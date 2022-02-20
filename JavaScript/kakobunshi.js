@@ -12,7 +12,7 @@ $.getJSON('../JSON/kakobunshi.json', function (kakobunshi, textStatus, jqXHR) {
   window.kako = shuffle(kakobunshi)
 })
 function mondai() {
-  $('#m_box').text(window.number + "問目")
+  $('#m_box').text(window.number + 1 + "問目")
   $('#q_box').text(window.kako[window.number].gen + "の過去分詞形") //問題を表示
 }
 
@@ -28,7 +28,7 @@ function kotaeawase() {
       window.saikou = window.renzoku
     }
     if (result == true) {
-      $('#m_box').text(window.number + "問目")
+      $('#m_box').text(window.number + 1 + "問目")
       $('#q_box').text(window.kako[window.number].gen + "の過去分詞形") //問題を表示
       $('#s_box').text(window.renzoku + "連続正解中！")
       $('#kaitou').val("")
@@ -50,7 +50,7 @@ function kotaeawase() {
   } else {
     var result = window.confirm('不正解…答えは' + answer + 'でしたー')
     if (result == true) {
-      $('#m_box').text(window.number + "問目")
+      $('#m_box').text(window.number + 1 + "問目")
       $('#q_box').text(window.kako[window.number].gen + "の過去分詞形") //問題を表示
       $('#s_box').text("")
       $('#kaitou').val("")
