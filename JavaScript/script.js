@@ -20,9 +20,9 @@ function kotaeawase() {
   const answer = window.data[window.number].en //答え
   window.number++
   if (kaitou == answer) {
-    var result = window.confirm('正解' + window.renzoku + "連続正解！！！")
     window.seikai++
     window.renzoku++
+    var result = window.confirm('正解\n' + window.renzoku + "連続正解！！！")
     if (window.renzoku > window.saikou) {
       window.saikou = window.renzoku
     }
