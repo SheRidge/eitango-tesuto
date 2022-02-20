@@ -32,6 +32,10 @@ function kotaeawase() {
       $('#kaitou').val("")
     } else if (result == false) {
       alert("終了！" + window.seikai + "/" + window.number + "正解！\n" + window.seikai / window.number * 100 + "％正解！\n最高" + window.saikou + "連続正解！！")
+      window.number = 0
+      window.seikai = 0
+      window.renzoku = 0
+      window.saikou = 0
     }
   } else {
     var result = window.confirm('不正解…答えは' + answer + 'でしたー')
@@ -42,6 +46,10 @@ function kotaeawase() {
       $('#kaitou').val("")
     } else if (result == false) {
       alert("終了！" + window.seikai + "/" + window.number + "正解！\n" + window.seikai / window.number * 100 + "％正解！\n最高" + window.saikou + "連続正解！！")
+      window.number = 0
+      window.seikai = 0
+      window.renzoku = 0
+      window.saikou = 0
     }
   }
 }
@@ -50,6 +58,7 @@ function reset() {
   window.number = 0
   window.seikai = 0
   window.renzoku = 0
+  window.saikou = 0
   alert("リセットしました")
 }
 
