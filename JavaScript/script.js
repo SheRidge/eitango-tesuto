@@ -2,6 +2,8 @@
 window.number = 0
 //正解数
 window.seikai = 0
+//連続正解数
+window.renzoku = 0
 
 //Jsonの読み込み
 $.getJSON('../JSON/data.json', function (data, textStatus, jqXHR) {
@@ -16,8 +18,9 @@ function kotaeawase() {
   const answer = window.data[window.number].en //答え
   window.number++
   if (kaitou == answer) {
-    var result = window.confirm('正解')
+    var result = window.confirm('正解' + window.renzoku + "連続正解！！！")
     window.seikai++
+    window.renzoku++
     if (result == true) {
       $('#q_box').text(window.data[window.number].jp) //問題を表示
       $('#kaitou').val("")
@@ -26,6 +29,7 @@ function kotaeawase() {
     }
   } else {
     var result = window.confirm('不正解…答えは' + answer + 'でしたー')
+    window.renzoku = 0
     if (result == true) {
       $('#q_box').text(window.data[window.number].jp) //問題を表示
       $('#kaitou').val("")
