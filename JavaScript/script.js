@@ -4,6 +4,8 @@ window.number = 0
 window.seikai = 0
 //連続正解数
 window.renzoku = 0
+//最高連続正解数
+window.saikou = 0
 
 //Jsonの読み込み
 $.getJSON('../JSON/data.json', function (data, textStatus, jqXHR) {
@@ -21,11 +23,14 @@ function kotaeawase() {
     var result = window.confirm('正解' + window.renzoku + "連続正解！！！")
     window.seikai++
     window.renzoku++
+    if (window.renzoku > window.saikou) {
+      window.saikou = window.renzoku
+    }
     if (result == true) {
       $('#q_box').text(window.data[window.number].jp) //問題を表示
       $('#kaitou').val("")
     } else if (result == false) {
-      alert("終了！" + window.seikai + "/" + window.number + "正解！")
+      alert("終了！" + window.seikai + "/" + window.number + "正解！\n" + window.seikai / window.number * 100 + "％正解！\n最高" + window.saikou + "連続正解！！")
     }
   } else {
     var result = window.confirm('不正解…答えは' + answer + 'でしたー')
@@ -34,7 +39,7 @@ function kotaeawase() {
       $('#q_box').text(window.data[window.number].jp) //問題を表示
       $('#kaitou').val("")
     } else if (result == false) {
-      alert("終了！" + window.seikai + "/" + window.number + "正解！\n" + window.seikai / window.number * 100 + "％正解！")
+      alert("終了！" + window.seikai + "/" + window.number + "正解！\n" + window.seikai / window.number * 100 + "％正解！\n最高" + window.saikou + "連続正解！！")
     }
   }
 }
@@ -42,6 +47,7 @@ function kotaeawase() {
 function reset() {
   window.number = 0
   window.seikai = 0
+  window.renzoku = 0
   alert("リセットしました")
 }
 
