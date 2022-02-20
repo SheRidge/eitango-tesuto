@@ -20,9 +20,9 @@ function kotaeawase() {
   const answer = window.kako[window.number].kako //答え
   window.number++
   if (kaitou == answer) {
-    var result = window.confirm('正解')
     window.seikai++
     window.renzoku++
+    var result = window.confirm('正解\n' + window.renzoku + "連続正解！！！")
     if (window.renzoku > window.saikou) {
       window.saikou = window.renzoku
     }
@@ -36,6 +36,7 @@ function kotaeawase() {
     var result = window.confirm('不正解…答えは' + answer + 'でしたー')
     if (result == true) {
       $('#q_box').text(window.kako[window.number].gen + "の過去形") //問題を表示
+      $('#s_box').text("")
       $('#kaitou').val("")
     } else if (result == false) {
       alert("終了！" + window.seikai + "/" + window.number + "正解！\n" + window.seikai / window.number * 100 + "％正解！\n最高" + window.saikou + "連続正解！！")
