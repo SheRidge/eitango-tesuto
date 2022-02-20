@@ -38,6 +38,7 @@ function kotaeawase() {
     window.renzoku = 0
     if (result == true) {
       $('#q_box').text(window.data[window.number].jp) //問題を表示
+      $('#s_box').text("")
       $('#kaitou').val("")
     } else if (result == false) {
       alert("終了！" + window.seikai + "/" + window.number + "正解！\n" + window.seikai / window.number * 100 + "％正解！\n最高" + window.saikou + "連続正解！！")
