@@ -14,9 +14,9 @@ $.getJSON('../JSON/data.json', function (data, textStatus, jqXHR) {
   window.data = shuffle(data)
 })
 
-function mondaisuu() {
-  window.mondaisuu = parseFloat($('#kaitou').val());//入力したもの
-  alert("問題数を" + window.mondaisuu + "に設定しました。")
+function tenmon() {
+  window.mondaisuu = 10
+  alert("問題数を10問に設定しました。")
 }
 
 function mondai() {
