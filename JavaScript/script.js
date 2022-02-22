@@ -19,6 +19,11 @@ function tenmon() {
   alert("問題数を10問に設定しました。")
 }
 
+function fivemon() {
+  window.mondaisuu = 5
+  alert("問題数を5問に設定しました。")
+}
+
 function mondai() {
   $('#m_box').text(window.number + 1 + "/" + window.mondaisuu + "問目")
   $('#q_box').text(window.data[window.number].jp) //問題を表示
