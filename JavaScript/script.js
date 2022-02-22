@@ -31,11 +31,12 @@ function kotaeawase() {
   if (kaitou == answer) {
     window.seikai++
     window.renzoku++
+    if (window.renzoku > window.saikou) {
+      window.saikou = window.renzoku
+    }
     if (window.mondaisuu > window.number) {
       var result = window.confirm('正解\n' + window.renzoku + "連続正解！！！")
-      if (window.renzoku > window.saikou) {
-        window.saikou = window.renzoku
-      }
+
       if (result == true) {
         $('#m_box').text(window.number + 1 + "/" + window.mondaisuu + "問目")
         $('#q_box').text(window.data[window.number].jp) //問題を表示
