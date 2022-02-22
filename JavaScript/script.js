@@ -63,7 +63,7 @@ function kotaeawase() {
         }
       }
     } else {
-      alert("終了！" + window.seikai + "/" + window.number + "正解！\n" + window.seikai / window.number * 100 + "％正解！\n最高" + window.saikou + "連続正解！！")
+      alert("正解\n終了！" + window.seikai + "/" + window.number + "正解！\n" + window.seikai / window.number * 100 + "％正解！\n最高" + window.saikou + "連続正解！！")
       window.number = 0
       window.seikai = 0
       window.renzoku = 0
@@ -94,6 +94,7 @@ function kotaeawase() {
         }
       }
     } else {
+      alert('不正解…答えは' + answer + 'でしたー')
       alert("終了！" + window.seikai + "/" + window.number + "正解！\n" + window.seikai / window.number * 100 + "％正解！\n最高" + window.saikou + "連続正解！！")
       window.number = 0
       window.seikai = 0
