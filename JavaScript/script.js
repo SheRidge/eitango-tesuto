@@ -31,7 +31,7 @@ function kotaeawase() {
   if (kaitou == answer) {
     window.seikai++
     window.renzoku++
-    if (window.mondaisuu < window.number) {
+    if (window.mondaisuu > window.number) {
       var result = window.confirm('正解\n' + window.renzoku + "連続正解！！！")
       if (window.renzoku > window.saikou) {
         window.saikou = window.renzoku
