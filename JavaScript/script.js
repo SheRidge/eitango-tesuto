@@ -8,6 +8,8 @@ window.renzoku = 0
 window.saikou = 0
 //問題数
 window.mondaisuu = 100
+//Point
+window.point = 0
 
 //Jsonの読み込み
 $.getJSON('../JSON/data.json', function (data, textStatus, jqXHR) {
@@ -36,6 +38,7 @@ function kotaeawase() {
   if (kaitou == answer) {
     window.seikai++
     window.renzoku++
+    window.point = 100 / window.mondai
     if (window.renzoku > window.saikou) {
       window.saikou = window.renzoku
     }
@@ -63,7 +66,7 @@ function kotaeawase() {
         }
       }
     } else {
-      alert("正解\n終了！" + window.seikai + "/" + window.number + "正解！\n" + window.seikai / window.number * 100 + "％正解！\n最高" + window.saikou + "連続正解！！")
+      alert("正解\n終了！" + window.seikai + "/" + window.number + "正解！\n" + window.seikai / window.number * 100 + "％正解！\n最高" + window.saikou + "連続正解！！\n" + window.point + "点！")
       window.number = 0
       window.seikai = 0
       window.renzoku = 0
@@ -95,7 +98,7 @@ function kotaeawase() {
       }
     } else {
       alert('不正解…答えは' + answer + 'でしたー')
-      alert("終了！" + window.seikai + "/" + window.number + "正解！\n" + window.seikai / window.number * 100 + "％正解！\n最高" + window.saikou + "連続正解！！")
+      alert("終了！" + window.seikai + "/" + window.number + "正解！\n" + window.seikai / window.number * 100 + "％正解！\n最高" + window.saikou + "連続正解！！\n" + window.point + "点！")
       window.number = 0
       window.seikai = 0
       window.renzoku = 0
