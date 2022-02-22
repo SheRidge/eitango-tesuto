@@ -97,6 +97,8 @@ function kotaeawase() {
   }
 }
 
+console.log(renzoku)
+
 function reset() {
   window.number = 0
   window.seikai = 0
