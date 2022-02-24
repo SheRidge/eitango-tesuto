@@ -59,3 +59,7 @@ h1 {
 ul.list {
   list-style-type: disc;
 }
+
+@media screen and (max-width: 767px){
+  tesuto {zoom: 200%;}
+}
