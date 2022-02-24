@@ -61,5 +61,9 @@ ul.list {
 }
 
 @media screen and (max-width: 767px){
-  tesuto {zoom: 200%;}
+  body.tesuto {zoom: 200%;}
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px){
+  body.tesuto {zoom: 200%;}
 }
