@@ -38,7 +38,6 @@ function kotaeawase() {
   if (kaitou == answer) {
     window.seikai++
     window.renzoku++
-    window.point = 100 / window.mondai
     if (window.renzoku > window.saikou) {
       window.saikou = window.renzoku
     }
@@ -66,7 +65,7 @@ function kotaeawase() {
         }
       }
     } else {
-      alert("正解\n終了！" + window.seikai + "/" + window.number + "正解！\n" + window.seikai / window.number * 100 + "％正解！\n最高" + window.saikou + "連続正解！！\n" + window.point + "点！")
+      alert("正解\n終了！" + window.seikai + "/" + window.number + "正解！\n" + window.seikai / window.number * 100 + "％正解！\n最高" + window.saikou + "連続正解！！")
       window.number = 0
       window.seikai = 0
       window.renzoku = 0
