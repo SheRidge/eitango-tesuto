@@ -1,17 +1,41 @@
 <html>
-<title>英単語テストアプリ</title>
-<script src="JavaScript/script.js"></script>
-<link rel="stylesheet" href="../CSS/style.css">
+
+<head>
+	<title>英単語テストアプリ</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+</head>
 
 <body>
-    <ul class="list">
-        <li href="HTML/mondai.html" class="btn-gradient-radius">START</li>
-        <li href="HTML/kakokei.html"><input id="Button_Get" type="button" value="過去形テストSTART" onclick="getJson();" />
-        </li>
-        <li href="HTML/kakobunshi.html"><input id="Button_Get" type="button" value="過去分詞形テストSTART"
-                onclick="getJson();" />
-        </li>
-    </ul>
+	<div class="flex justify-center flex-col p-10 space-y-6 full-screen">
+		<div class="text-2xl bg-sky-400 p-4 rounded-2xl">英単語テスト</div>
+
+		<div class="max-w-sm rounded overflow-hidden shadow-lg" onclick="location.href = '/a'">
+			<div class="px-6 py-4">
+				<div class="font-bold text-xl mb-2">単語テスト</div>
+				<p class="text-gray-700 text-base">
+				 単語のテストを行います
+				</p>
+			</div>
+		</div>
+
+		<div class="max-w-sm rounded overflow-hidden shadow-lg">
+			<div class="px-6 py-4">
+				<div class="font-bold text-xl mb-2">過去形テスト</div>
+				<p class="text-gray-700 text-base">
+					過去形のテストを行います
+				</p>
+			</div>
+		</div>
+
+		<div class="max-w-sm rounded overflow-hidden shadow-lg">
+			<div class="px-6 py-4">
+				<div class="font-bold text-xl mb-2">過去分詞テスト</div>
+				<p class="text-gray-700 text-base">
+					過去分詞のテストを行います
+				</p>
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>
