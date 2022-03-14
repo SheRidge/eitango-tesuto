@@ -12,9 +12,9 @@ window.mondaisuu = 100
 window.point = 0
 
 //Jsonの読み込み
-if ($(location).attr('type') == 'word') {
+if (getParam('type') == 'word') {
   const db_name = 'data.json'
-} else if ($(location).attr('type') == 'kako'){
+} else if (getParam('type') == 'kako'){
   const db_name = 'kako.json'
 } else {
   location.href = "../"
@@ -136,4 +136,14 @@ function shuffle(array) {
       ]
   }
   return array
+}
+
+function getParam(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
