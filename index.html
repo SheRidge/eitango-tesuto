@@ -1,5 +1,4 @@
 <html>
-
 <head>
 	<title>英単語テストアプリ</title>
 	<script src="https://cdn.tailwindcss.com"></script>
@@ -9,7 +8,7 @@
 	<div class="flex justify-center flex-col p-10 space-y-6 full-screen">
 		<div class="text-2xl bg-sky-400 p-4 rounded-2xl">英単語テスト</div>
 
-		<div class="max-w-sm rounded overflow-hidden shadow-lg" onclick="location.href = '/a'">
+		<div class="max-w-sm rounded overflow-hidden shadow-lg" onclick="location.href = 'quiz.html?type=word'">
 			<div class="px-6 py-4">
 				<div class="font-bold text-xl mb-2">単語テスト</div>
 				<p class="text-gray-700 text-base">
@@ -18,7 +17,7 @@
 			</div>
 		</div>
 
-		<div class="max-w-sm rounded overflow-hidden shadow-lg">
+		<div class="max-w-sm rounded overflow-hidden shadow-lg" onclick="location.href = 'quiz.html?type=kako'">
 			<div class="px-6 py-4">
 				<div class="font-bold text-xl mb-2">過去形テスト</div>
 				<p class="text-gray-700 text-base">
@@ -27,7 +26,7 @@
 			</div>
 		</div>
 
-		<div class="max-w-sm rounded overflow-hidden shadow-lg">
+		<div class="max-w-sm rounded overflow-hidden shadow-lg" onclick="location.href = 'quiz.html?type=kakobunshi'">
 			<div class="px-6 py-4">
 				<div class="font-bold text-xl mb-2">過去分詞テスト</div>
 				<p class="text-gray-700 text-base">
