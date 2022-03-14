@@ -12,7 +12,14 @@ window.mondaisuu = 100
 window.point = 0
 
 //Jsonの読み込み
-$.getJSON('../JSON/data.json', function (data, textStatus, jqXHR) {
+if ($(location).attr('type') == 'word') {
+  const db_name = 'data.json'
+} else if ($(location).attr('type') == 'kako'){
+  const db_name = 'kako.json'
+} else {
+  location.href = "../"
+}
+$.getJSON('../db/data.json', function (data, textStatus, jqXHR) {
   window.data = shuffle(data)
 })
 
