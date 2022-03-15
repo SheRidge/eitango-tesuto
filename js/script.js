@@ -23,7 +23,7 @@ if (getParam('type') == 'word') {
 } else {
   const db_name = 'data.json'
 }
-$.getJSON('../db/data.json', function (data, textStatus, jqXHR) {
+$.getJSON('db/' + db_name, function (data, textStatus, jqXHR) {
   db_data = shuffle(data)
 })
 
