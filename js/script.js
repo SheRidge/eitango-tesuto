@@ -1,127 +1,118 @@
 //問題数
-window.number = 0
+let number = 0
 //正解数
-window.seikai = 0
+let seikai = 0
 //連続正解数
-window.renzoku = 0
+let renzoku = 0
 //最高連続正解数
-window.saikou = 0
+let saikou = 0
 //問題数
-window.mondaisuu = 100
+let mondaisuu = 100
 //Point
-window.point = 0
+let point = 0
+
+let db_data
 
 //Jsonの読み込み
 if (getParam('type') == 'word') {
   const db_name = 'data.json'
 } else if (getParam('type') == 'kako'){
   const db_name = 'kako.json'
+} else if (getParam('type') == 'kako') {
+  const db_name = 'kakobunshi.json'
 } else {
-  location.href = "../"
+  const db_name = 'data.json'
 }
 $.getJSON('../db/data.json', function (data, textStatus, jqXHR) {
-  window.data = shuffle(data)
+  db_data = shuffle(data)
 })
 
-function tenmon() {
-  window.mondaisuu = 10
-  alert("問題数を10問に設定しました。")
+function set(n) {
+  mondaisuu = n
+  alert(`問題数を${n}問に設定しました。`)
 }
 
-function fivemon() {
-  window.mondaisuu = 5
-  alert("問題数を5問に設定しました。")
-}
 
 function mondai() {
-  $('#m_box').text(window.number + 1 + "/" + window.mondaisuu + "問目")
-  $('#q_box').text(window.data[window.number].jp) //問題を表示
+  $('#m_box').text(number + 1 + "/" + mondaisuu + "問目")
+  $('#q_box').text(db_data[number].q) //問題を表示
 }
 
 function kotaeawase() {
   const kaitou = $('#kaitou').val() //入力したもの
-  const answer = window.data[window.number].en //答え
-  window.number++
+  const answer = db_data[number].a //答え
+  number++
   if (kaitou == answer) {
-    window.seikai++
-    window.renzoku++
-    if (window.renzoku > window.saikou) {
-      window.saikou = window.renzoku
+    seikai++
+    renzoku++
+    if (renzoku > saikou) {
+      saikou = renzoku
     }
-    if (window.mondaisuu > window.number) {
-      var result = window.confirm('正解\n' + window.renzoku + "連続正解！！！")
+    if (mondaisuu > number) {
+      var result = confirm('正解\n' + renzoku + "連続正解！！！")
 
       if (result == true) {
-        $('#m_box').text(window.number + 1 + "/" + window.mondaisuu + "問目")
-        $('#q_box').text(window.data[window.number].jp) //問題を表示
-        $('#s_box').text(window.renzoku + "連続正解中！")
+        $('#m_box').text(number + 1 + "/" + mondaisuu + "問目")
+        $('#q_box').text(db_data[number].q) //問題を表示
+        $('#s_box').text(renzoku + "連続正解中！")
         $('#kaitou').val("")
       } else if (result == false) {
-        if (window.number == window.renzoku) {
-          alert("終了！" + window.seikai + "/" + window.number + "正解！\n" + window.seikai / window.number * 100 + "％正解！\n全問正解！！！！！\n")
-          window.number = 0
-          window.seikai = 0
-          window.renzoku = 0
-          window.saikou = 0
+        if (number == renzoku) {
+          alert("終了！" + seikai + "/" + number + "正解！\n" + seikai / number * 100 + "％正解！\n全問正解！！！！！\n")
+          number = 0
+          seikai = 0
+          renzoku = 0
+          saikou = 0
         } else {
-          alert("終了！" + window.seikai + "/" + window.number + "正解！\n" + window.seikai / window.number * 100 + "％正解！\n最高" + window.saikou + "連続正解！！")
-          window.number = 0
-          window.seikai = 0
-          window.renzoku = 0
-          window.saikou = 0
+          alert("終了！" + seikai + "/" + number + "正解！\n" + seikai / number * 100 + "％正解！\n最高" + saikou + "連続正解！！")
+          number = 0
+          seikai = 0
+          renzoku = 0
+          saikou = 0
         }
       }
     } else {
-      alert("正解\n終了！" + window.seikai + "/" + window.number + "正解！\n" + window.seikai / window.number * 100 + "％正解！\n最高" + window.saikou + "連続正解！！")
-      window.number = 0
-      window.seikai = 0
-      window.renzoku = 0
-      window.saikou = 0
+      alert("正解\n終了！" + seikai + "/" + number + "正解！\n" + seikai / number * 100 + "％正解！\n最高" + saikou + "連続正解！！")
+      number = 0
+      seikai = 0
+      renzoku = 0
+      saikou = 0
     }
   } else {
-    if (window.mondaisuu > window.number) {
-      var result = window.confirm('不正解…答えは' + answer + 'でしたー')
-      window.renzoku = 0
+    if (mondaisuu > number) {
+      var result = confirm('不正解…答えは' + answer + 'でしたー')
+      renzoku = 0
       if (result == true) {
-        $('#m_box').text(window.number + 1 + "/" + window.mondaisuu + "問目")
-        $('#q_box').text(window.data[window.number].jp) //問題を表示
+        $('#m_box').text(number + 1 + "/" + mondaisuu + "問目")
+        $('#q_box').text(db_data[number].q) //問題を表示
         $('#s_box').text("")
         $('#kaitou').val("")
       } else if (result == false) {
-        if (window.number == window.renzoku) {
-          alert("終了！" + window.seikai + "/" + window.number + "正解！\n" + window.seikai / window.number * 100 + "％正解！\n全問正解！！！！！\n")
-          window.number = 0
-          window.seikai = 0
-          window.renzoku = 0
-          window.saikou = 0
+        if (number == renzoku) {
+          alert("終了！" + seikai + "/" + number + "正解！\n" + seikai / number * 100 + "％正解！\n全問正解！！！！！\n")
+          number = 0
+          seikai = 0
+          renzoku = 0
+          saikou = 0
         } else {
-          alert("終了！" + window.seikai + "/" + window.number + "正解！\n" + window.seikai / window.number * 100 + "％正解！\n最高" + window.saikou + "連続正解！！")
-          window.number = 0
-          window.seikai = 0
-          window.renzoku = 0
-          window.saikou = 0
+          alert("終了！" + seikai + "/" + number + "正解！\n" + seikai / number * 100 + "％正解！\n最高" + saikou + "連続正解！！")
+          number = 0
+          seikai = 0
+          renzoku = 0
+          saikou = 0
         }
       }
     } else {
       alert('不正解…答えは' + answer + 'でしたー')
-      alert("終了！" + window.seikai + "/" + window.number + "正解！\n" + window.seikai / window.number * 100 + "％正解！\n最高" + window.saikou + "連続正解！！\n" + window.point + "点！")
-      window.number = 0
-      window.seikai = 0
-      window.renzoku = 0
-      window.saikou = 0
+      alert("終了！" + seikai + "/" + number + "正解！\n" + seikai / number * 100 + "％正解！\n最高" + saikou + "連続正解！！\n" + point + "点！")
+      number = 0
+      seikai = 0
+      renzoku = 0
+      saikou = 0
     }
   }
 }
 
-console.log(renzoku)
-
-function reset() {
-  window.number = 0
-  window.seikai = 0
-  window.renzoku = 0
-  window.saikou = 0
-  alert("リセットしました")
-}
 
 
 function shuffle(array) {
@@ -139,7 +130,7 @@ function shuffle(array) {
 }
 
 function getParam(name, url) {
-    if (!url) url = window.location.href;
+    if (!url) url = location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
     var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
         results = regex.exec(url);
