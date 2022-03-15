@@ -31,6 +31,7 @@ $(document).ready(function () {
 
 function set(n) {
   mondaisuu = n
+  mondai()
   alert(`問題数を${n}問に設定しました。`)
 }
 
@@ -140,3 +141,9 @@ function getParam(name, url) {
   if (!results[2]) return '';
   return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
+
+$(function () {
+  $('input, #q_box').on('copy cut paste', function (e) {
+    e.preventDefault();
+  });
+});
