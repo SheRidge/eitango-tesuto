@@ -9,17 +9,33 @@
 </head>
 
 <body>
-  <h1>英単語テスト</h1>
-  <a class="btn" onclick="mondai()">問題を表示</a><br>
-  <div id="m_box"></div>
-  <div id="q_box"></div>
-  <div id="s_box"></div>
-  答え<input type="text" id="kaitou" autofocus><br>
-  <button onclick="kotaeawase()">答え合わせ</button><br>
-  <a class="btn-3d" onclick="set(10)">10問テストにする</a>
-  <a class="btn-3d" onclick="set(5)">5問テストにする</a><br>
-  <script src="js/script.js"></script>
+  <div class="flex justify-center flex-col p-10 space-y-3 full-screen">
+    <div class="text-2xl ">英単語テスト</div>
+    <button class="btn" onclick="mondai()">問題を表示</button>
+    <div id="m_box"></div>
+    <div id="q_box"></div>
+    <div id="s_box"></div>
 
+<div class="flex items-center border-b border-teal-500 py-2">
+  <input
+    class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+    type="text" placeholder="答え" id="kaitou" autofocus>
+  <button
+    class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"
+    type="button" onclick="kotaeawase()">
+    Answer
+  </button>
+  <button class="flex-shrink-0 border-transparent border-4 text-teal-500 hover:text-teal-800 text-sm py-1 px-2 rounded"
+    type="button" onclick="$('#kaitou').val('')">
+    Cancel
+  </button>
+</div>
+
+    <button class="text-white bg-gray-400 rounded-2xl" onclick="set(10)">10問テストにする</button>
+    <button class="text-white bg-gray-400 rounded-2xl" onclick="set(5)">5問テストにする</button>
+  </div>
+
+  <script src="js/script.js"></script>
 </body>
 
 </html>
