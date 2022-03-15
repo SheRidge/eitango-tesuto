@@ -13,18 +13,20 @@ let point = 0
 
 let db_data
 
-//Jsonの読み込み
-if (getParam('type') == 'word') {
-  const db_name = 'data.json'
-} else if (getParam('type') == 'kako'){
-  const db_name = 'kako.json'
-} else if (getParam('type') == 'kako') {
-  const db_name = 'kakobunshi.json'
-} else {
-  const db_name = 'data.json'
-}
-$.getJSON('db/' + db_name, function (data, textStatus, jqXHR) {
-  db_data = shuffle(data)
+$(document).ready(function () {
+  let db_name
+  if (getParam('type') == 'word') {
+    db_name = 'data.json'
+  } else if (getParam('type') == 'kako') {
+    db_name = 'kako.json'
+  } else if (getParam('type') == 'kakobunshi') {
+    db_name = 'kakobunshi.json'
+  } else {
+    db_name = 'data.json'
+  }
+  $.getJSON('db/' + db_name, function (data, textStatus, jqXHR) {
+    db_data = shuffle(data)
+  })
 })
 
 function set(n) {
@@ -130,11 +132,11 @@ function shuffle(array) {
 }
 
 function getParam(name, url) {
-    if (!url) url = location.href;
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
+  if (!url) url = location.href;
+  name = name.replace(/[\[\]]/g, "\\$&");
+  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+    results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
